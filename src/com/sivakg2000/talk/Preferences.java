@@ -4,7 +4,7 @@
  */
 
 /*
- * IMateTalkPreferences.java
+ * VTalkPreferences.java
  *
  * Created on Mar 24, 2013, 12:26:22 PM
  */
@@ -23,15 +23,14 @@ public class Preferences extends javax.swing.JDialog {
 
     private Logger logger = Logger.getLogger(Preferences.class);
 
-    /** Creates new form IMateTalkPreferences */
+    /** Creates new form VTalkPreferences */
     public Preferences(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
 
         try {
             // com.sivakg2000.talk
-            setIconImage(
-                    ImageIO.read(IMateTalkView.class.getResourceAsStream("/com/sivakg2000/talk/resources/logo.png")));
+            setIconImage(ImageIO.read(VTalkView.class.getResourceAsStream("/com/sivakg2000/talk/resources/logo.png")));
         } catch (IOException e) {
             System.out.println("Error");
         }
@@ -69,7 +68,7 @@ public class Preferences extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application
-                .getInstance(com.sivakg2000.talk.IMateTalkApp.class).getContext().getResourceMap(Preferences.class);
+                .getInstance(com.sivakg2000.talk.VTalkApp.class).getContext().getResourceMap(Preferences.class);
         setTitle(resourceMap.getString("Form.title")); // NOI18N
         setName("Form"); // NOI18N
         setResizable(false);

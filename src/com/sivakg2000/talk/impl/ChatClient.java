@@ -6,7 +6,7 @@ package com.sivakg2000.talk.impl;
 
 import com.sivakg2000.apihandler.APIHandler;
 import com.sivakg2000.apihandler.APIModuleImpl;
-import com.sivakg2000.talk.IMateTalkView;
+import com.sivakg2000.talk.VTalkView;
 import com.sivakg2000.util.Common;
 import java.util.Collection;
 import org.apache.log4j.Logger;
@@ -103,7 +103,7 @@ public class ChatClient implements MessageListener, APIHandler, Runnable {
         for (RosterEntry r : entries) {
             // connection.getChatManager().createChat(r.getUser(), this);
             // logger.info(r.getUser());
-            IMateTalkView.instance.getUserListModel().addElement(r.getUser());
+            VTalkView.instance.getUserListModel().addElement(r.getUser());
 
         }
     }

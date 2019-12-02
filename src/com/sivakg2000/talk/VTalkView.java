@@ -1,5 +1,5 @@
 /*
- * IMateGTalkView.java
+ * VGTalkView.java
  */
 package com.sivakg2000.talk;
 
@@ -39,7 +39,7 @@ import org.apache.log4j.PropertyConfigurator;
 /**
  * The application's main frame.
  */
-public class IMateTalkView extends FrameView {
+public class VTalkView extends FrameView {
 
     ChatClient objChat = new ChatClient();
     private Logger logger = Logger.getLogger(this.getClass().getName());
@@ -51,10 +51,10 @@ public class IMateTalkView extends FrameView {
         return userListModel;
     }
 
-    public static IMateTalkView instance;
+    public static VTalkView instance;
     public static JPanel mPanel;
 
-    public IMateTalkView(SingleFrameApplication app) {
+    public VTalkView(SingleFrameApplication app) {
         super(app);
 
         /*
@@ -131,19 +131,19 @@ public class IMateTalkView extends FrameView {
         });
 
         if (logViewer == null) {
-            JFrame mainFrame = IMateTalkApp.getApplication().getMainFrame();
+            JFrame mainFrame = VTalkApp.getApplication().getMainFrame();
             logViewer = new LogViewer(mainFrame, false);
             logViewer.setLocationRelativeTo(mainFrame);
         }
 
         if (aboutBox == null) {
-            JFrame mainFrame = IMateTalkApp.getApplication().getMainFrame();
-            aboutBox = new IMateTalkAboutBox(mainFrame);
+            JFrame mainFrame = VTalkApp.getApplication().getMainFrame();
+            aboutBox = new VTalkAboutBox(mainFrame);
             aboutBox.setLocationRelativeTo(mainFrame);
         }
 
         if (preferencesBox == null) {
-            JFrame mainFrame = IMateTalkApp.getApplication().getMainFrame();
+            JFrame mainFrame = VTalkApp.getApplication().getMainFrame();
             preferencesBox = new Preferences(mainFrame, true);
             preferencesBox.setLocationRelativeTo(mainFrame);
         }
@@ -153,7 +153,7 @@ public class IMateTalkView extends FrameView {
 
         try {
 
-            appIcon = ImageIO.read(IMateTalkView.class.getResourceAsStream("/com/sivakg2000/talk/resources/logo.png"));
+            appIcon = ImageIO.read(VTalkView.class.getResourceAsStream("/com/sivakg2000/talk/resources/logo.png"));
             getFrame().setIconImage(appIcon);
             loadSystemTray();
 
@@ -163,7 +163,7 @@ public class IMateTalkView extends FrameView {
             System.out.println("Error");
         }
 
-        IMateTalkView.setupLog4JAppender(statusMessageLabel, LogViewer.txtLogView);
+        VTalkView.setupLog4JAppender(statusMessageLabel, LogViewer.txtLogView);
         instance = this;
         mPanel = mainPanel;
 
@@ -185,7 +185,7 @@ public class IMateTalkView extends FrameView {
 
             public void actionPerformed(ActionEvent e) {
 
-                IMateTalkApp.getApplication().show(aboutBox);
+                VTalkApp.getApplication().show(aboutBox);
             }
         });
         menu.add(messageItemAbout);
@@ -194,7 +194,7 @@ public class IMateTalkView extends FrameView {
         messageItemShowLogviewer.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                IMateTalkApp.getApplication().show(logViewer);
+                VTalkApp.getApplication().show(logViewer);
             }
         });
         menu.add(messageItemShowLogviewer);
@@ -204,15 +204,15 @@ public class IMateTalkView extends FrameView {
 
             public void actionPerformed(ActionEvent e) {
                 /*
-                 * IMateTalkApp.getApplication().getMainView().setComponent(mainPanel);
-                 * IMateTalkApp.getApplication().getMainView().setMenuBar(menuMain);
-                 * IMateTalkApp.getApplication().getMainView().setStatusBar(statusPanel);
-                 * IMateTalkApp.getApplication().getMainFrame().show();
+                 * VTalkApp.getApplication().getMainView().setComponent(mainPanel);
+                 * VTalkApp.getApplication().getMainView().setMenuBar(menuMain);
+                 * VTalkApp.getApplication().getMainView().setStatusBar(statusPanel);
+                 * VTalkApp.getApplication().getMainFrame().show();
                  */
-                IMateTalkApp.getApplication().getMainFrame().setExtendedState(Frame.ICONIFIED);
+                VTalkApp.getApplication().getMainFrame().setExtendedState(Frame.ICONIFIED);
 
-                // IMateTalkView.instance.
-                // IMateTalkApp.
+                // VTalkView.instance.
+                // VTalkApp.
             }
         });
         menu.add(messageItemShow);
@@ -222,7 +222,7 @@ public class IMateTalkView extends FrameView {
 
             public void actionPerformed(ActionEvent e) {
 
-                IMateTalkApp.getApplication().show(preferencesBox);
+                VTalkApp.getApplication().show(preferencesBox);
             }
         });
         menu.add(messageItemPreferences);
@@ -245,7 +245,7 @@ public class IMateTalkView extends FrameView {
     @Action
     public void showAboutBox() {
 
-        IMateTalkApp.getApplication().show(aboutBox);
+        VTalkApp.getApplication().show(aboutBox);
     }
 
     /**
@@ -289,7 +289,7 @@ public class IMateTalkView extends FrameView {
         jScrollPane2.setViewportView(lstUser);
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application
-                .getInstance(com.sivakg2000.talk.IMateTalkApp.class).getContext().getResourceMap(IMateTalkView.class);
+                .getInstance(com.sivakg2000.talk.VTalkApp.class).getContext().getResourceMap(VTalkView.class);
         btnStart.setText(resourceMap.getString("btnStart.text")); // NOI18N
         btnStart.setName("btnStart"); // NOI18N
         btnStart.addActionListener(new java.awt.event.ActionListener() {
@@ -332,8 +332,7 @@ public class IMateTalkView extends FrameView {
         fileMenu.add(menuOpenLog);
 
         javax.swing.ActionMap actionMap = org.jdesktop.application.Application
-                .getInstance(com.sivakg2000.talk.IMateTalkApp.class).getContext()
-                .getActionMap(IMateTalkView.class, this);
+                .getInstance(com.sivakg2000.talk.VTalkApp.class).getContext().getActionMap(VTalkView.class, this);
         exitMenuItem.setAction(actionMap.get("quit")); // NOI18N
         exitMenuItem.setName("exitMenuItem"); // NOI18N
         fileMenu.add(exitMenuItem);
@@ -442,7 +441,7 @@ public class IMateTalkView extends FrameView {
     private void menuItemPreferencesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_menuItemPreferencesActionPerformed
         // TODO add your handling code here:
 
-        IMateTalkApp.getApplication().show(preferencesBox);
+        VTalkApp.getApplication().show(preferencesBox);
 
     }// GEN-LAST:event_menuItemPreferencesActionPerformed
 
@@ -466,13 +465,13 @@ public class IMateTalkView extends FrameView {
 
     private void menuOpenLogActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_menuOpenLogActionPerformed
         // TODO add your handling code here:
-        JFrame mainFrame = IMateTalkApp.getApplication().getMainFrame();
+        JFrame mainFrame = VTalkApp.getApplication().getMainFrame();
         int returnVal = fileChooserOpenLog.showOpenDialog(mainFrame);
     }// GEN-LAST:event_menuOpenLogActionPerformed
 
     private void menuItemLogViewerActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_menuItemLogViewerActionPerformed
         // TODO add your handling code here:
-        IMateTalkApp.getApplication().show(logViewer);
+        VTalkApp.getApplication().show(logViewer);
 
     }// GEN-LAST:event_menuItemLogViewerActionPerformed
 
@@ -493,7 +492,7 @@ public class IMateTalkView extends FrameView {
          */
 
         logProperties.put("log4j.appender.FILE", "org.apache.log4j.FileAppender");
-        logProperties.put("log4j.appender.FILE.File", "iMateTalk.log");
+        logProperties.put("log4j.appender.FILE.File", "VTalk.log");
         logProperties.put("log4j.appender.FILE.layout", "org.apache.log4j.PatternLayout");
         logProperties.put("log4j.appender.FILE.layout.ConversionPattern", "%d{yyyy-MM-dd HH:mm:ss} : %m%n");
 

@@ -26,13 +26,12 @@ public class LogViewer extends javax.swing.JDialog {
 
         try {
             // com.sivakg2000.talk
-            setIconImage(
-                    ImageIO.read(IMateTalkView.class.getResourceAsStream("/com/sivakg2000/talk/resources/logo.png")));
+            setIconImage(ImageIO.read(VTalkView.class.getResourceAsStream("/com/sivakg2000/talk/resources/logo.png")));
         } catch (IOException e) {
             System.out.println("Error");
         }
 
-        // IMateTalkView.setupLog4JAppender(txtLogView);
+        // VTalkView.setupLog4JAppender(txtLogView);
     }
 
     /**
@@ -51,7 +50,7 @@ public class LogViewer extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application
-                .getInstance(com.sivakg2000.talk.IMateTalkApp.class).getContext().getResourceMap(LogViewer.class);
+                .getInstance(com.sivakg2000.talk.VTalkApp.class).getContext().getResourceMap(LogViewer.class);
         setTitle(resourceMap.getString("Form.title")); // NOI18N
         setMinimumSize(new java.awt.Dimension(500, 200));
         setName("Form"); // NOI18N

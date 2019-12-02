@@ -4,7 +4,7 @@
  */
 package com.sivakg2000.util;
 
-import com.sivakg2000.talk.IMateTalkView;
+import com.sivakg2000.talk.VTalkView;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
