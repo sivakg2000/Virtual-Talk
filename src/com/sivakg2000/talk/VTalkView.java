@@ -137,9 +137,7 @@ public class VTalkView extends FrameView {
         }
 
         if (aboutBox == null) {
-            JFrame mainFrame = VTalkApp.getApplication().getMainFrame();
-            aboutBox = new VTalkAboutBox(mainFrame);
-            aboutBox.setLocationRelativeTo(mainFrame);
+             
         }
 
         if (preferencesBox == null) {
